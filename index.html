@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Gastos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="icons/icon-192.png" type="image/png">
+</head>
+<body>
+
+  <main class="app">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">PWA</span>
+        <h1>GastoTrack</h1>
+        <p>Registro simple de gastos personales</p>
+      </div>
+
+      <div class="icon-box">JS</div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <h2>Lista de gastos</h2>
+          <p>Gastos cargados en la aplicación</p>
+        </div>
+
+        <button id="btnAbrirModal" class="btn-primary">
+          + Agregar gasto
+        </button>
+      </div>
+
+      <ul id="listaGastos" class="expense-list"></ul>
+
+      <div id="estadoVacio" class="empty-state">
+        Todavía no hay gastos registrados.
+      </div>
+    </section>
+  </main>
+
+  <div id="modalGasto" class="modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>Nuevo gasto</h2>
+        <button id="btnCerrarModal" class="btn-close">×</button>
+      </div>
+
+      <form id="formGasto">
+        <label> Descripción
+          <input type="text" id="descripcion" placeholder="Ej: Café" required />
+        </label>
+
+        <label> Monto
+          <input type="number" id="monto" placeholder="Ej: 1500" required />
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" id="btnCancelar" class="btn-secondary"> Cancelar </button>
+
+          <button type="submit" class="btn-primary"> Guardar gasto </button>
+        </div>
+      </form>
+    </div>
+  </div>
+    
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
