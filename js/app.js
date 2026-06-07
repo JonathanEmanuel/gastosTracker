@@ -31,13 +31,17 @@ const renderGastos = (gastos) => {
     estadoVacio.style.display = gastos.length === 0 ? 'block' : 'none';
 
     gastos.forEach(gasto => {
+        const fecha = new Date(gasto.fecha);
+        const fechaHora = fecha.toLocaleString('es-AR');
         const li = document.createElement('li');
         li.classList.add('expense-item');
 
         li.innerHTML = `
         <div>
             <strong>${gasto.descripcion}</strong>
-            <small>ID: ${gasto._id}</small>
+            <small>${gasto._id} - [ </small>
+            <small>${fechaHora} ]</small>
+
         </div>
 
         <span>$${gasto.monto}</span>
@@ -70,6 +74,7 @@ formGasto.addEventListener('submit', async (event) => {
         _id: Date.now(),
         descripcion: inputDescripcion.value.trim(),
         monto: Number(inputMonto.value),
+        fecha: new Date().toISOString(),
         sincronizados: 'pendiente'
     };
 
